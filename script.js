@@ -106,6 +106,10 @@ function numberWithCommas(x) {
 
 //builds up string to be parsed as a number
 function addToNumber(value) {
+    if(numString.includes('.') && value == ".") {
+        return;
+    }
+    
     numString += value;
     writeToScreen(numString);
 }

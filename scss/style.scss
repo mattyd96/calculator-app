@@ -76,11 +76,19 @@ body {
     background-color: var(--numpad-bg-color);
     align-items: center;
 
+    &:hover {
+        cursor: pointer;
+    }
+
     input {
         margin: 0;
         z-index: 2;
         opacity: 0;
         padding: 1rem;
+    }
+
+    input:hover {
+        cursor: pointer;
     }
 
     input[value="1"] {
@@ -155,6 +163,10 @@ body {
         border-bottom: .2rem solid;
         color: var(--text-color);
         padding: .6rem 0 .4rem 0;   
+    }
+
+    button:hover {
+        cursor: pointer;
     }
 
     button:active { 

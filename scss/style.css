@@ -88,11 +88,19 @@ body {
           align-items: center;
 }
 
+.theme-toggle:hover {
+  cursor: pointer;
+}
+
 .theme-toggle input {
   margin: 0;
   z-index: 2;
   opacity: 0;
   padding: 1rem;
+}
+
+.theme-toggle input:hover {
+  cursor: pointer;
 }
 
 .theme-toggle input[value="1"] {
@@ -193,6 +201,10 @@ body {
   border-bottom: .2rem solid;
   color: var(--text-color);
   padding: .6rem 0 .4rem 0;
+}
+
+.numpad button:hover {
+  cursor: pointer;
 }
 
 .numpad button:active {
