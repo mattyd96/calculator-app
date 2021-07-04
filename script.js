@@ -6,6 +6,7 @@ function themeChange() {
     Array.from(elements).forEach( element => {
         if(element.checked) {
             changeColours(element.value);
+            setCookie("theme", element.value, 2);
             return;
         }
     })
@@ -194,3 +195,58 @@ function operate(first, second, operation) {
 
     return answer;
 }
+
+//---------------------- setting Theme ---------------------//
+//sets theme -> input is a cookie value string "1", "2", "3"
+function setTheme(theme) {
+    var elements = document.getElementsByName('toggle');
+    Array.from(elements).forEach( element => { element.checked = false});
+    elements[parseInt(theme) - 1].checked = true;
+    changeColours(theme);
+}
+//---------------------- cookies ---------------------------//
+
+//set cookie
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+//get cookie
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+//check cookie
+function checkCookie() {
+  let theme = getCookie("theme");
+  if (theme != "") {
+   return theme;
+  } else {
+    return false;
+  }
+}
+
+//check for cookies on load -> create one if none 
+window.onload = (event) => {
+  var isCookie = checkCookie();
+  if(isCookie != false) {
+      setTheme(isCookie);
+  } else {
+      setCookie("theme", "1", 2);
+  }
+};
