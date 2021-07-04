@@ -92,7 +92,15 @@ var operations = []; //buffer of operations to be done between each float in buf
 
 //write number to screen
 function writeToScreen(text) {
+    text = numberWithCommas(text);
     document.getElementById('number').innerText = text;
+}
+
+//inserts commas for 1000th seperators 
+function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
 }
 
 //builds up string to be parsed as a number
