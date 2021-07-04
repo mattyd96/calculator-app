@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+
+  <link rel="stylesheet" href="scss/style.css">
+</head>
+<body>
+  <div class="calc-container">
+    <header class="top">
+      <h2 class="title">calc</h2>
+      <!--Toggle goes here-->
+      <div class="theme-selector">
+        <p class="theme-text">THEME</p>
+        <div class="slider">
+          <div class="select-num">
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+          </div>
+          <div class="theme-toggle">
+            <input checked type="radio" name="toggle" value="1" onclick="themeChange()">
+            <input type="radio" name="toggle" value="2" onclick="themeChange()">
+            <input type="radio" name="toggle" value="3" onclick="themeChange()">
+            <span class="toggle-bg"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="screen">
+        <h1 id="number">0</h1>
+      </section>
+      <section class="numpad">
+        <button type="button" class="gen-button" id="7" onclick="addToNumber('7')">              7</button>
+        <button type="button" class="gen-button" id="8" onclick="addToNumber('8')">              8</button>
+        <button type="button" class="gen-button" id="9" onclick="addToNumber('9')">              9</button>
+        <button type="button" class="dr-button" id="del" onclick="removeFromNumber()">           DEL</button>
+        <button type="button" class="gen-button" id="4" onclick="addToNumber('4')">              4</button>
+        <button type="button" class="gen-button" id="5" onclick="addToNumber('5')">              5</button>
+        <button type="button" class="gen-button" id="6" onclick="addToNumber('6')">              6</button>
+        <button type="button" class="gen-button" id="plus" onclick="setOperation('+')">          +</button>
+        <button type="button" class="gen-button" id="1" onclick="addToNumber('1')">              1</button>
+        <button type="button" class="gen-button" id="2" onclick="addToNumber('2')">              2</button>
+        <button type="button" class="gen-button" id="3" onclick="addToNumber('3')">              3</button>
+        <button type="button" class="gen-button" id="minus" onclick="setOperation('-')">         -</button>
+        <button type="button" class="gen-button" id="decimal" onclick="addToNumber('.')">        .</button>
+        <button type="button" class="gen-button" id="0" onclick="addToNumber('0')">              0</button>
+        <button type="button" class="gen-button" id="divide" onclick="setOperation('/')">        /</button>
+        <button type="button" class="gen-button" id="multiply" onclick="setOperation('x')">      x</button>
+        <button type="button" class="span2 dr-button" id="reset" onclick="reset()">          RESET</button>
+        <button type="button" class="span2" id="equals" onclick="doOperations()">                =</button>
+      </section>
+    </main>
+  </div>
+
+
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+  <script src="script.js"></script>
+</body>
+</html>

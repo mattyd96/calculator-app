@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+:root {
+    --bg-color: hsl(222, 26%, 31%);
+    --text-color: hsl(0, 0%, 100%);
+
+    --screen-color: hsl(224, 36%, 15%);
+    --numpad-bg-color: hsl(223, 31%, 20%);
+
+    --gen-button-color: hsl(30, 25%, 89%);
+    --gen-button-shadow-color: hsl(28, 16%, 65%);
+    --gen-button-text-color: hsl(221, 14%, 31%);
+
+    --dr-button-color: hsl(225, 21%, 49%);
+    --dr-button-shadow-color: hsl(224, 28%, 35%);
+    --dr-button-text-color: hsl(0, 0%, 100%);
+
+    --equal-button-color: hsl(6, 63%, 50%);
+    --equal-button-shadow-color: hsl(6, 70%, 34%); 
+    --equal-button-text-color: hsl(0, 0%, 100%); 
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.calc-container {
+    margin: 5rem auto;
+    max-width: 32rem;
+    padding: 1.5rem;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .6rem;
+}
+
+.theme-selector {
+    display: flex;
+    
+    p {
+        font-size: .75rem;
+    }
+
+    .theme-text {
+        margin-top: 1.4rem;
+        margin-right: 1rem;
+    }
+
+    .select-num {
+        display: flex;
+        justify-content: space-around;
+        width: 5rem;
+
+        p {
+            padding: 0;
+            margin: 0;
+            margin-bottom: .2rem;
+        }
+    }
+}
+
+.theme-toggle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    justify-items: center;
+    width: 5rem;
+    height: 1.4rem;
+    border-radius: 5rem;
+    background-color: var(--numpad-bg-color);
+    align-items: center;
+
+    input {
+        margin: 0;
+        z-index: 2;
+        opacity: 0;
+        padding: 1rem;
+    }
+
+    input[value="1"] {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    input[value="2"] {
+        grid-row: 1/2;
+        grid-column: 2/3;
+    }
+
+    input[value="3"] {
+        grid-row: 1/2;
+        grid-column: 3/4;
+    }
+
+    .toggle-bg {
+        grid-row: 1/2;
+        grid-column: 1/4;
+        z-index: 1;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 1rem;
+        background-color: var(--equal-button-color);
+        transition:all 0.3s ease-in-out;
+    }
+
+    input[value="1"]:checked ~ .toggle-bg{
+        margin-left: -3.3rem;
+
+    }
+
+    input[value="3"]:checked ~ .toggle-bg{
+        margin-left: 3.3rem;
+    } 
+}
+
+.screen {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.5rem;
+    height: 5rem;
+    background-color: var(--screen-color);
+    color: var(--text-color);
+    border-radius: .5rem;
+
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--numpad-bg-color);
+    border-radius: .5rem;
+    margin-top: 1.5rem;
+
+    .span2 {
+        grid-column-start: span 2;
+    }
+
+    button {
+        font-family: 'Spartan', sans-serif;
+        border-style: none;
+        border-radius: .25rem;
+        border-bottom: .2rem solid;
+        color: var(--text-color);
+        padding: .6rem 0 .4rem 0;   
+    }
+
+    button:active { 
+        margin-top: .1rem;
+        margin-bottom: -.1rem;
+    }
+
+    .gen-button {
+        font-size: 2rem;
+        background-color: var(--gen-button-color);
+        border-color: var(--gen-button-shadow-color);
+        color: var(--gen-button-text-color);  
+    }
+
+    .dr-button {
+        background-color: var(--dr-button-color);
+        border-color: var(--dr-button-shadow-color);
+        color: var(--dr-button-text-color);
+        font-size: 1.25rem;
+    }
+
+    #equals {
+        background-color: var(--equal-button-color);
+        border-color: var(--equal-button-shadow-color);
+        color: var(--equal-button-text-color);
+        font-size: 1.25rem;
+    }
+
+}

@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+:root {
+  --bg-color: hsl(222, 26%, 31%);
+  --text-color: hsl(0, 0%, 100%);
+  --screen-color: hsl(224, 36%, 15%);
+  --numpad-bg-color: hsl(223, 31%, 20%);
+  --gen-button-color: hsl(30, 25%, 89%);
+  --gen-button-shadow-color: hsl(28, 16%, 65%);
+  --gen-button-text-color: hsl(221, 14%, 31%);
+  --dr-button-color: hsl(225, 21%, 49%);
+  --dr-button-shadow-color: hsl(224, 28%, 35%);
+  --dr-button-text-color: hsl(0, 0%, 100%);
+  --equal-button-color: hsl(6, 63%, 50%);
+  --equal-button-shadow-color: hsl(6, 70%, 34%);
+  --equal-button-text-color: hsl(0, 0%, 100%);
+}
+
+body {
+  font-family: 'Spartan', sans-serif;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.calc-container {
+  margin: 5rem auto;
+  max-width: 32rem;
+  padding: 1.5rem;
+}
+
+.top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: .6rem;
+}
+
+.theme-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.theme-selector p {
+  font-size: .75rem;
+}
+
+.theme-selector .theme-text {
+  margin-top: 1.4rem;
+  margin-right: 1rem;
+}
+
+.theme-selector .select-num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 5rem;
+}
+
+.theme-selector .select-num p {
+  padding: 0;
+  margin: 0;
+  margin-bottom: .2rem;
+}
+
+.theme-toggle {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  width: 5rem;
+  height: 1.4rem;
+  border-radius: 5rem;
+  background-color: var(--numpad-bg-color);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.theme-toggle input {
+  margin: 0;
+  z-index: 2;
+  opacity: 0;
+  padding: 1rem;
+}
+
+.theme-toggle input[value="1"] {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+}
+
+.theme-toggle input[value="2"] {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+}
+
+.theme-toggle input[value="3"] {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+}
+
+.theme-toggle .toggle-bg {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  z-index: 1;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 1rem;
+  background-color: var(--equal-button-color);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.theme-toggle input[value="1"]:checked ~ .toggle-bg {
+  margin-left: -3.3rem;
+}
+
+.theme-toggle input[value="3"]:checked ~ .toggle-bg {
+  margin-left: 3.3rem;
+}
+
+.screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem;
+  height: 5rem;
+  background-color: var(--screen-color);
+  color: var(--text-color);
+  border-radius: .5rem;
+}
+
+.screen h1 {
+  font-size: 3rem;
+}
+
+.numpad {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--numpad-bg-color);
+  border-radius: .5rem;
+  margin-top: 1.5rem;
+}
+
+.numpad .span2 {
+  -ms-grid-column: span 2;
+      grid-column-start: span 2;
+}
+
+.numpad button {
+  font-family: 'Spartan', sans-serif;
+  border-style: none;
+  border-radius: .25rem;
+  border-bottom: .2rem solid;
+  color: var(--text-color);
+  padding: .6rem 0 .4rem 0;
+}
+
+.numpad button:active {
+  margin-top: .1rem;
+  margin-bottom: -.1rem;
+}
+
+.numpad .gen-button {
+  font-size: 2rem;
+  background-color: var(--gen-button-color);
+  border-color: var(--gen-button-shadow-color);
+  color: var(--gen-button-text-color);
+}
+
+.numpad .dr-button {
+  background-color: var(--dr-button-color);
+  border-color: var(--dr-button-shadow-color);
+  color: var(--dr-button-text-color);
+  font-size: 1.25rem;
+}
+
+.numpad #equals {
+  background-color: var(--equal-button-color);
+  border-color: var(--equal-button-shadow-color);
+  color: var(--equal-button-text-color);
+  font-size: 1.25rem;
+}
+/*# sourceMappingURL=style.css.map */
